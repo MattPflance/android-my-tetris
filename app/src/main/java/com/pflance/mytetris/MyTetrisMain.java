@@ -373,10 +373,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
             displayed_goal = goal;
             ++level;
             level_view.setText(Integer.toString(level));
-            if (drop_speed > 100) {
-                drop_speed -= 50;
-                pieceDropHandler.removeCallbacks(pieceDropRunnable);
-                pieceDropHandler.postDelayed(pieceDropRunnable, MyTetrisMain.drop_speed);
+            if (actual_drop_speed > 100) {
+                actual_drop_speed -= 50;
             }
         }
         goal_view.setText(Integer.toString(displayed_goal));
