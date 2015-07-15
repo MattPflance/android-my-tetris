@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="orange">#FF660C</color>
+    <color name="green">#008000</color>
+    <color name="blue">#00B8E6</color>
+    <color name="red">#FF0000</color>
+    <color name="purple">#9900CC</color>
+    <color name="yellow">#FFCC00</color>
+    <color name="pink">#FF00FF</color>
+    <color name="black">#000000</color>
+    <color name="board_background_color">#DCF5F5</color>
+    <color name="app_background_color">#6FA96F</color>
+    <color name="transparent">#00000000</color>
+
+
+</resources>

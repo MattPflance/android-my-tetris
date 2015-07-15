@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/the_board_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/board_background_color"
+    android:orientation="vertical"
+    android:layout_width="220dp"
+    android:layout_height="440dp" >
+    
+    <LinearLayout android:id="@+id/Y_0"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_0"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_1"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_2"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_2"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_3"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_3"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_4"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_4"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_5"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_5"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_6"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_6"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_7"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_7"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_8"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_8"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_9"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_9"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_10"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_11"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_12"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_13"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_13"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_14"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_14"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_15"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_15"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_16"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_16"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_17"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_17"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_18"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_18"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/Y_19"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <View android:id="@+id/board_0_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_1_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_2_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_3_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_4_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_5_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_6_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_7_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_8_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/board_9_19"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+    </LinearLayout>
+
+</LinearLayout>

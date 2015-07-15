@@ -1,0 +1,153 @@
+<RelativeLayout android:id="@+id/main_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/main_horizontal_margin"
+    android:paddingRight="@dimen/main_horizontal_margin"
+    android:paddingBottom="@dimen/main_bottom_margin"
+    android:background="@color/app_background_color"
+    tools:context=".MyTetrisMain" >
+
+    <TextView android:id="@+id/level_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/level"
+        android:textSize="10pt" />
+
+    <TextView android:id="@+id/the_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_toRightOf="@id/level_text"
+        android:layout_toEndOf="@id/level_text"
+        android:textSize="10pt" />
+
+    <TextView android:id="@+id/goal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_toRightOf="@id/the_level"
+        android:layout_toEndOf="@id/the_level"
+        android:text="@string/goal"
+        android:textSize="10pt" />
+
+    <TextView android:id="@+id/the_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_toRightOf="@id/goal_text"
+        android:layout_toEndOf="@id/goal_text"
+        android:textSize="10pt" />
+
+    <TextView android:id="@+id/score_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_toRightOf="@id/the_goal"
+        android:layout_toEndOf="@id/the_goal"
+        android:text="@string/score"
+        android:textSize="10pt" />
+
+    <TextView android:id="@+id/the_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_toRightOf="@id/score_text"
+        android:layout_toEndOf="@id/score_text"
+        android:textSize="10pt" />
+
+    <View android:id="@+id/left_gridbar"
+        android:layout_width="3dp"
+        android:layout_height="440dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:background="#000000" />
+
+    <View android:id="@+id/bottom_gridbar"
+        android:layout_width="226dp"
+        android:layout_height="3dp"
+        android:layout_alignParentBottom="true"
+        android:background="#000000" />
+
+    <View android:id="@+id/right_gridbar"
+        android:layout_width="3dp"
+        android:layout_height="440dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="223dp"
+        android:layout_marginStart="223dp"
+        android:background="#000000" />
+
+    <!-- This is the Grid -->
+
+    <com.pflance.mytetris.Board android:id="@+id/the_board"
+        android:layout_width="220dp"
+        android:layout_height="440dp"
+        android:layout_above="@id/bottom_gridbar"
+        android:layout_toRightOf="@id/left_gridbar"
+        android:layout_toEndOf="@id/left_gridbar" >
+
+    </com.pflance.mytetris.Board>
+
+    <!-- Right side bar stuff -->
+
+    <Button android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/right_gridbar"
+        android:layout_toRightOf="@id/right_gridbar"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/main_bottom_margin"
+        android:text="@string/pause"
+        android:textColor="#FFFFFF"
+        android:onClick="popPauseMenu" />
+
+    <TextView android:id="@+id/held_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/right_gridbar"
+        android:layout_toRightOf="@id/right_gridbar"
+        android:layout_above="@id/pause_button"
+        android:gravity="center"
+        android:layout_marginBottom="150dp"
+        android:text="@string/held"
+        android:textSize="16pt" />
+
+    <RelativeLayout android:id="@+id/held_piece_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/right_gridbar"
+        android:layout_toRightOf="@id/right_gridbar"
+        android:layout_below="@id/held_text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView android:id="@+id/next_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/right_gridbar"
+        android:layout_toRightOf="@id/right_gridbar"
+        android:layout_above="@id/pause_button"
+        android:gravity="center"
+        android:layout_marginBottom="400dp"
+        android:text="@string/next"
+        android:textSize="16pt" />
+
+    <RelativeLayout android:id="@+id/next_piece_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/right_gridbar"
+        android:layout_toRightOf="@id/right_gridbar"
+        android:layout_below="@id/next_text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/pause_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#95000000"
+     >
+
+        <RelativeLayout
+            android:paddingLeft="@dimen/popup_margin"
+            android:paddingRight="@dimen/popup_margin"
+            android:paddingBottom="@dimen/popup_margin"
+            android:paddingTop="@dimen/popup_margin"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:background="#730000">
+
+            <TextView android:id="@+id/Game_Is"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/game_is"
+                android:textSize="20pt"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/Game_Is"
+                android:text="@string/paused"
+                android:textSize="20pt"
+                android:textColor="#FFFFFF" />
+
+            <Button android:id="@+id/return_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/return_text"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+</RelativeLayout>

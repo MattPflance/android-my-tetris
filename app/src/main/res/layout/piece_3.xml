@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper android:id="@+id/piece_3_flipper"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout android:id="@+id/piece_3_0"
+        android:layout_width="44dp"
+        android:layout_height="44dp" >
+
+        <View android:id="@+id/piece_3_0_00"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:background="@color/yellow" />
+
+        <View android:id="@+id/piece_3_0_01"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_3_0_00"
+            android:layout_toEndOf="@id/piece_3_0_00"
+            android:background="@color/yellow" />
+
+        <View android:id="@+id/piece_3_0_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_alignParentBottom="true"
+            android:background="@color/yellow" />
+
+        <View android:id="@+id/piece_3_0_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_3_0_10"
+            android:layout_toEndOf="@id/piece_3_0_10"
+            android:layout_alignParentBottom="true"
+            android:background="@color/yellow" />
+
+    </RelativeLayout>
+
+</ViewFlipper>

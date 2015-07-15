@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Tetris</string>
+
+    <string name="pause">Pause</string>
+    <string name="level">Level:</string>
+    <string name="score">Score:</string>
+    <string name="goal">Goal:</string>
+    <string name="held">Hold</string>
+    <string name="next">Next</string>
+
+    <string name="game_is">Game is</string>
+    <string name="paused">Paused</string>
+    <string name="return_text">Return to Game</string>
+
+</resources>

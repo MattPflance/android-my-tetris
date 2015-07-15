@@ -1,0 +1,9 @@
+<resources>
+
+    <dimen name="main_horizontal_margin">7dp</dimen>
+    <dimen name="main_bottom_margin">4dp</dimen>
+
+    <dimen name="popup_margin">10dp</dimen>
+    <dimen name="block_size">22dp</dimen>
+
+</resources>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewFlipper android:id="@+id/piece_0_flipper"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout android:id="@+id/piece_0_0"
+        android:layout_width="66dp"
+        android:layout_height="66dp" >
+
+        <View android:id="@+id/piece_0_0_00"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/piece_0_0_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_00"
+            android:layout_toEndOf="@id/piece_0_0_00" />
+
+        <View android:id="@+id/piece_0_0_20"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_10"
+            android:layout_toEndOf="@id/piece_0_0_10" />
+
+        <View android:id="@+id/piece_0_0_01"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_0_00"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_0_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_01"
+            android:layout_toEndOf="@id/piece_0_0_01"
+            android:layout_below="@id/piece_0_0_10"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_0_21"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_11"
+            android:layout_toEndOf="@id/piece_0_0_11"
+            android:layout_below="@id/piece_0_0_20" />
+
+        <View android:id="@+id/piece_0_0_02"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_0_01" />
+
+        <View android:id="@+id/piece_0_0_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_02"
+            android:layout_toEndOf="@id/piece_0_0_02"
+            android:layout_below="@id/piece_0_0_11"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_0_22"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_0_12"
+            android:layout_toEndOf="@id/piece_0_0_12"
+            android:layout_below="@id/piece_0_0_21"
+            android:background="@color/orange" />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/piece_0_1"
+        android:layout_width="66dp"
+        android:layout_height="66dp" >
+
+        <View android:id="@+id/piece_0_1_00"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/piece_0_1_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_00"
+            android:layout_toEndOf="@id/piece_0_1_00"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_1_20"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_10"
+            android:layout_toEndOf="@id/piece_0_1_10" />
+
+        <View android:id="@+id/piece_0_1_01"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_1_00"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_1_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_01"
+            android:layout_toEndOf="@id/piece_0_1_01"
+            android:layout_below="@id/piece_0_1_10"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_1_21"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_11"
+            android:layout_toEndOf="@id/piece_0_1_11"
+            android:layout_below="@id/piece_0_1_20" />
+
+        <View android:id="@+id/piece_0_1_02"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_1_01"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_1_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_02"
+            android:layout_toEndOf="@id/piece_0_1_02"
+            android:layout_below="@id/piece_0_1_11" />
+
+        <View android:id="@+id/piece_0_1_22"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_1_12"
+            android:layout_toEndOf="@id/piece_0_1_12"
+            android:layout_below="@id/piece_0_1_21" />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/piece_0_2"
+        android:layout_width="66dp"
+        android:layout_height="66dp" >
+
+        <View android:id="@+id/piece_0_2_00"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_2_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_00"
+            android:layout_toEndOf="@id/piece_0_2_00"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_2_20"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_10"
+            android:layout_toEndOf="@id/piece_0_2_10" />
+
+        <View android:id="@+id/piece_0_2_01"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_2_00" />
+
+        <View android:id="@+id/piece_0_2_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_01"
+            android:layout_toEndOf="@id/piece_0_2_01"
+            android:layout_below="@id/piece_0_2_10"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_2_21"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_11"
+            android:layout_toEndOf="@id/piece_0_2_11"
+            android:layout_below="@id/piece_0_2_20"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_2_02"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_2_01" />
+
+        <View android:id="@+id/piece_0_2_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_02"
+            android:layout_toEndOf="@id/piece_0_2_02"
+            android:layout_below="@id/piece_0_2_11" />
+
+        <View android:id="@+id/piece_0_2_22"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_2_12"
+            android:layout_toEndOf="@id/piece_0_2_12"
+            android:layout_below="@id/piece_0_2_21" />
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/piece_0_3"
+        android:layout_width="66dp"
+        android:layout_height="66dp" >
+
+        <View android:id="@+id/piece_0_3_00"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size" />
+
+        <View android:id="@+id/piece_0_3_10"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_00"
+            android:layout_toEndOf="@id/piece_0_3_00" />
+
+        <View android:id="@+id/piece_0_3_20"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_10"
+            android:layout_toEndOf="@id/piece_0_3_10"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_3_01"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_3_00" />
+
+        <View android:id="@+id/piece_0_3_11"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_01"
+            android:layout_toEndOf="@id/piece_0_3_01"
+            android:layout_below="@id/piece_0_3_10"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_3_21"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_11"
+            android:layout_toEndOf="@id/piece_0_3_11"
+            android:layout_below="@id/piece_0_3_20"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_3_02"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_below="@id/piece_0_3_01" />
+
+        <View android:id="@+id/piece_0_3_12"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_02"
+            android:layout_toEndOf="@id/piece_0_3_02"
+            android:layout_below="@id/piece_0_3_11"
+            android:background="@color/orange" />
+
+        <View android:id="@+id/piece_0_3_22"
+            android:layout_width="@dimen/block_size"
+            android:layout_height="@dimen/block_size"
+            android:layout_toRightOf="@id/piece_0_3_12"
+            android:layout_toEndOf="@id/piece_0_3_12"
+            android:layout_below="@id/piece_0_3_21" />
+
+    </RelativeLayout>
+
+ </ViewFlipper>
