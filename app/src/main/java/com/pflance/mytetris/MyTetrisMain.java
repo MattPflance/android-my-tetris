@@ -101,10 +101,13 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         the_next_piece_view.setLayoutParams(next_params);
         next_params.addRule(RelativeLayout.ABOVE, R.id.pause_button);
         next_params.addRule(RelativeLayout.RIGHT_OF, R.id.right_gridbar);
-        next_params.setMargins(dpTopx(26), 0, 0, dpTopx(60));
+        next_params.setMargins(dpTopx(26), 0, 0, dpTopx(230));
         the_next_piece_view.setLayoutParams(next_params);
-        //the_next_piece = choosePiece();
-        //mainLayout.addView(the_next_piece_view);
+        the_next_piece = choosePiece();
+        // Set next image
+        LayoutInflater inflater = LayoutInflater.from(getBaseContext());
+        inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
+        the_next_piece.inUse = true;
 
         // Get the screen width to set up tapping to rotate
         Display display = getWindowManager().getDefaultDisplay();
@@ -117,6 +120,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
         // Set the current piece to one of the pieces stored
         the_piece = choosePiece();
+        the_piece.state = 5;
+        the_piece.Rotate(1, false);
         mainLayout.addView(the_piece);
         the_piece.inUse = true;
 
@@ -129,11 +134,17 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 if (!the_piece.drop() && !paused) {
                     the_board.placePiece(the_piece);
                     mainLayout.removeView(the_piece);
-                    //the_piece = choosePiece();
-                   // the_piece = the_next_piece;
-                   // the_next_piece = choosePiece();
+                    the_piece = the_next_piece;
+                    the_next_piece_view.removeAllViews();
+                    the_next_piece = choosePiece();
+                    // Set next image
+                    LayoutInflater inflater = LayoutInflater.from(getBaseContext());
+                    inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
+                    the_next_piece.inUse = true;
                     the_piece.x = 4;
                     the_piece.y = -1;
+                    the_piece.state = 5;
+                    the_piece.Rotate(1, false);
                     the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
                     mainLayout.addView(the_piece);
                     drop_speed = actual_drop_speed;
@@ -310,7 +321,13 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         if (nulled) {
             Log.d("HOLD", "No held piece yet");
             the_held_piece = temp_piece;
-            the_piece = choosePiece();
+            the_piece = the_next_piece;
+            the_next_piece_view.removeAllViews();
+            the_next_piece = choosePiece();
+            // Set next image
+            LayoutInflater inflater = LayoutInflater.from(getBaseContext());
+            inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
+            the_next_piece.inUse = true;
         } else {
             Log.d("HOLD", "Recover held piece");
             // Recover held piece

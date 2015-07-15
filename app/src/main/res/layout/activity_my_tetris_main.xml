@@ -135,9 +135,9 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/right_gridbar"
         android:layout_toRightOf="@id/right_gridbar"
-        android:layout_above="@id/pause_button"
+        android:layout_above="@id/held_text"
         android:gravity="center"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/next"
         android:textSize="16pt" />
 

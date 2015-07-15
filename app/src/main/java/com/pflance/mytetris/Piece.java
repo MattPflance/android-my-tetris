@@ -33,65 +33,13 @@ public class Piece extends RelativeLayout {
         number = 2;
         state = 5;
 
-        // Set width, height, # of states, and layouts for the piece
-        switch(number) {
-            case 0:
-                color = R.color.orange;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_0_flipper;
-                layout_id = R.layout.piece_0;
-                break;
-            case 1:
-                color = R.color.green;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_1_flipper;
-                layout_id = R.layout.piece_1;
-                break;
-            case 2:
-                color = R.color.blue;
-                width = 4;
-                height = 4;
-                states = 4;
-                flipper_id = R.id.piece_2_flipper;
-                layout_id = R.layout.piece_2;
-                break;
-            case 3:
-                color = R.color.yellow;
-                width = 2;
-                height = 2;
-                states = 1;
-                flipper_id = R.id.piece_3_flipper;
-                layout_id = R.layout.piece_3;
-                break;
-            case 4:
-                color = R.color.pink;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_4_flipper;
-                layout_id = R.layout.piece_4;
-                break;
-            case 5:
-                color = R.color.red;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_5_flipper;
-                layout_id = R.layout.piece_5;
-                break;
-            case 6:
-                color = R.color.purple;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_6_flipper;
-                layout_id = R.layout.piece_6;
-                break;
-        }
+        color = R.color.blue;
+        width = 4;
+        height = 4;
+        states = 4;
+        flipper_id = R.id.piece_2_flipper;
+        layout_id = R.layout.piece_2;
+
 
         // Init the grid with width and height values
         grid = new boolean[width][height]; // The largest width and height any piece can be. Keep?
@@ -110,7 +58,7 @@ public class Piece extends RelativeLayout {
         params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ABOVE, R.id.bottom_gridbar);
         params.addRule(RelativeLayout.RIGHT_OF, R.id.left_gridbar);
-        x = 2;
+        x = 4;
         y = -1; // above the board
 
         setLayoutParams(params);
@@ -123,65 +71,12 @@ public class Piece extends RelativeLayout {
         number = 2;
         state = 5;
 
-        // Set width, height, # of states, and layouts for the piece
-        switch(number) {
-            case 0:
-                color = R.color.orange;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_0_flipper;
-                layout_id = R.layout.piece_0;
-                break;
-            case 1:
-                color = R.color.green;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_1_flipper;
-                layout_id = R.layout.piece_1;
-                break;
-            case 2:
-                color = R.color.blue;
-                width = 4;
-                height = 4;
-                states = 4;
-                flipper_id = R.id.piece_2_flipper;
-                layout_id = R.layout.piece_2;
-                break;
-            case 3:
-                color = R.color.yellow;
-                width = 2;
-                height = 2;
-                states = 1;
-                flipper_id = R.id.piece_3_flipper;
-                layout_id = R.layout.piece_3;
-                break;
-            case 4:
-                color = R.color.pink;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_4_flipper;
-                layout_id = R.layout.piece_4;
-                break;
-            case 5:
-                color = R.color.red;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_5_flipper;
-                layout_id = R.layout.piece_5;
-                break;
-            case 6:
-                color = R.color.purple;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_6_flipper;
-                layout_id = R.layout.piece_6;
-                break;
-        }
+        color = R.color.blue;
+        width = 4;
+        height = 4;
+        states = 4;
+        flipper_id = R.id.piece_2_flipper;
+        layout_id = R.layout.piece_2;
 
         // Init the grid with width and height values
         grid = new boolean[width][height]; // The largest width and height any piece can be. Keep?
@@ -200,7 +95,7 @@ public class Piece extends RelativeLayout {
         params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ABOVE, R.id.bottom_gridbar);
         params.addRule(RelativeLayout.RIGHT_OF, R.id.left_gridbar);
-        x = 2;
+        x = 4;
         y = -1; // above the board
 
         setLayoutParams(params);
@@ -213,65 +108,12 @@ public class Piece extends RelativeLayout {
         number = 2;
         state = 5;
 
-        // Set width, height, # of states, and layouts for the piece
-        switch(number) {
-            case 0:
-                color = R.color.orange;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_0_flipper;
-                layout_id = R.layout.piece_0;
-                break;
-            case 1:
-                color = R.color.green;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_1_flipper;
-                layout_id = R.layout.piece_1;
-                break;
-            case 2:
-                color = R.color.blue;
-                width = 4;
-                height = 4;
-                states = 4;
-                flipper_id = R.id.piece_2_flipper;
-                layout_id = R.layout.piece_2;
-                break;
-            case 3:
-                color = R.color.yellow;
-                width = 2;
-                height = 2;
-                states = 1;
-                flipper_id = R.id.piece_3_flipper;
-                layout_id = R.layout.piece_3;
-                break;
-            case 4:
-                color = R.color.pink;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_4_flipper;
-                layout_id = R.layout.piece_4;
-                break;
-            case 5:
-                color = R.color.red;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_5_flipper;
-                layout_id = R.layout.piece_5;
-                break;
-            case 6:
-                color = R.color.purple;
-                width = 3;
-                height = 3;
-                states = 4;
-                flipper_id = R.id.piece_6_flipper;
-                layout_id = R.layout.piece_6;
-                break;
-        }
+        color = R.color.blue;
+        width = 4;
+        height = 4;
+        states = 4;
+        flipper_id = R.id.piece_2_flipper;
+        layout_id = R.layout.piece_2;
 
         // Init the grid with width and height values
         grid = new boolean[width][height]; // The largest width and height any piece can be. Keep?
@@ -290,8 +132,8 @@ public class Piece extends RelativeLayout {
         params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.ABOVE, R.id.bottom_gridbar);
         params.addRule(RelativeLayout.RIGHT_OF, R.id.left_gridbar);
-        x = 2;
-        y = 3; // above the board
+        x = 4;
+        y = -1; // above the board
 
         setLayoutParams(params);
 
@@ -714,5 +556,7 @@ public class Piece extends RelativeLayout {
         }
         return false;
     }
+
+    public int getLayoutId() { return layout_id; }
 }
 
