@@ -13,7 +13,6 @@ import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.View.OnTouchListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -34,12 +33,12 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
     public static int level = 1;
     public static TextView level_view;
     public static Random random = new Random(); // The random generator for the pieces
-    public boolean held = false; // Determines if a piece has just been recently held or not
-    public Piece[] all_pieces = new Piece[7]; // Holds all possible pieces
+    public static boolean held = false; // Determines if a piece has just been recently held or not
+    public static Piece[] all_pieces = new Piece[7]; // Holds all possible pieces
     public static int drop_speed = 500; // The drop_speed that the piece is set to always
     public static int actual_drop_speed = 500; // The actual drop speed the piece should be
-    private RelativeLayout the_held_piece_view;
-    private RelativeLayout the_next_piece_view;
+    private static RelativeLayout the_held_piece_view;
+    private static RelativeLayout the_next_piece_view;
     private static Handler pieceDropHandler;
     private static Runnable pieceDropRunnable;
     public static Resources resources;
@@ -52,17 +51,23 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
     private GestureDetector gestureDetector;
     public static RelativeLayout mainLayout;
     public PopupWindow pausePopUp;
+    public static PopupWindow gameOverPopUp;
     public Button return_button;
-    public Piece the_piece;
-    public Piece the_held_piece = null;
-    public Piece the_next_piece;
+    public static Piece the_piece;
+    public static Piece the_held_piece = null;
+    public static Piece the_next_piece;
+    public static Context main_context;
+    private static boolean game_over;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //get context
+        main_context = getBaseContext();
+
         // Set up Resources to convert px to dp
-        resources = getBaseContext().getResources();
+        resources = main_context.getResources();
 
         // Set up all pieces
         for (int i=0; i<7; ++i){
@@ -80,7 +85,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         score_view = (TextView)findViewById(R.id.the_score);
         score_view.setText(Integer.toString(score));
 
-        // Sets up the Gesture Listener and dectector
+        // Sets up the Gesture Listener and detector
         gestureDetector = new GestureDetector(getApplicationContext(), this);
         View view = findViewById(R.id.main_layout);
         view.setOnTouchListener(this);
@@ -117,6 +122,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
         // Init the board
         the_board = (Board)findViewById(R.id.the_board);
+        the_board.main_view = view;
+        the_board.main_context = main_context;
 
         // Set the current piece to one of the pieces stored
         the_piece = choosePiece();
@@ -133,25 +140,32 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 //do something
                 if (!the_piece.drop() && !paused) {
                     the_board.placePiece(the_piece);
-                    mainLayout.removeView(the_piece);
-                    the_piece = the_next_piece;
-                    the_next_piece_view.removeAllViews();
-                    the_next_piece = choosePiece();
-                    // Set next image
-                    LayoutInflater inflater = LayoutInflater.from(getBaseContext());
-                    inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
-                    the_next_piece.inUse = true;
-                    the_piece.x = 4;
-                    the_piece.y = -1;
-                    the_piece.state = 5;
-                    the_piece.Rotate(1, false);
-                    the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
-                    mainLayout.addView(the_piece);
-                    drop_speed = actual_drop_speed;
-                    held = false;
-                    // Then make a new piece and place above the board
+                    if (game_over) {
+                        game_over = false;
+                        pieceDropHandler.removeCallbacks(pieceDropRunnable);
+                    } else {
+                        mainLayout.removeView(the_piece);
+                        the_piece = the_next_piece;
+                        the_next_piece_view.removeAllViews();
+                        the_next_piece = choosePiece();
+                        // Set next image
+                        LayoutInflater inflater = LayoutInflater.from(getBaseContext());
+                        inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
+                        the_next_piece.inUse = true;
+                        the_piece.x = 4;
+                        the_piece.y = -1;
+                        the_piece.state = 5;
+                        the_piece.Rotate(1, false);
+                        the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+                        mainLayout.addView(the_piece);
+                        drop_speed = actual_drop_speed;
+                        held = false;
+                        pieceDropHandler.postDelayed(this, drop_speed);
+                        // Then make a new piece and place above the board
+                    }
+                } else {
+                    pieceDropHandler.postDelayed(this, drop_speed);
                 }
-                pieceDropHandler.postDelayed(this, drop_speed);
             }
         };
 
@@ -193,7 +207,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
     }
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
-        /* A scroll is a fling whre pressure is ~constant throughout movement */
+        /* A scroll is a fling where pressure is ~constant throughout movement */
         // e1 holds details of point where down gesture was performed
         // e2 holds details of where scrolling ends
         // velocityX and velocityY are self explanatory
@@ -268,8 +282,6 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         /* I do not know what this does */
         // e holds details of point where pressed
 
-
-
         return gestureDetector.onTouchEvent(e);
     }
 
@@ -277,7 +289,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
     public void popPauseMenu(View view){
         paused = true;
-        LayoutInflater popUp_inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater popUp_inflater = LayoutInflater.from(getBaseContext());
         View popUpView = popUp_inflater.inflate(R.layout.pause_menu, null, false);
         pausePopUp = new PopupWindow(popUpView, -1, -1, true);
         pausePopUp.showAtLocation(findViewById(R.id.main_layout), Gravity.CENTER, 0, 0);
@@ -353,7 +365,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         pieceDropHandler.postDelayed(pieceDropRunnable, drop_speed);
     }
 
-    public Piece choosePiece() {
+    public static Piece choosePiece() {
         int the_number;
         while(true) {
             the_number = random.nextInt(7);
@@ -379,6 +391,92 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         }
         goal_view.setText(Integer.toString(displayed_goal));
         score_view.setText(Integer.toString(score));
+    }
+
+    public static void gameOver(Context context, View view) {
+        game_over = true;
+        paused = true;
+        LayoutInflater popUp_inflater = LayoutInflater.from(context);
+        View popUpView = popUp_inflater.inflate(R.layout.game_over_menu, null, false);
+        gameOverPopUp = new PopupWindow(popUpView, -1, -1, true);
+        gameOverPopUp.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        // Others
+        Button new_game_button = (Button)popUpView.findViewById(R.id.new_game_button);
+        new_game_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                paused = false;
+                held = false;
+
+                // Reset board
+                for (int i=0; i<10; ++i){
+                    for (int j=0; j<20; ++j) {
+                        Board.grid[i][j] = false;
+                        Board.blocks[i][j].setBackgroundColor(resources.getColor(R.color.transparent));
+                    }
+                }
+
+                // Reset score, level, goal
+                level = 1;
+                level_view.setText("" + level);
+                goal = 5;
+                goal_view.setText("" + goal);
+                score = 0;
+                score_view.setText("" + score);
+
+                // Reset drop speed
+                actual_drop_speed = 500;
+                drop_speed = actual_drop_speed;
+
+                // Set all 7 pieces to not in use
+                for (int i=0; i<7; ++i) {
+                    all_pieces[i].inUse = false;
+                }
+
+                // Reset held piece
+                the_held_piece = null;
+                the_held_piece_view.removeAllViews();
+
+                // Reset next piece
+                the_next_piece_view.removeAllViews();
+                the_next_piece = choosePiece();
+                LayoutInflater inflater = LayoutInflater.from(main_context);
+                inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
+                the_next_piece.inUse = true;
+
+                // Reset the piece
+                mainLayout.removeView(the_piece);
+                the_piece = choosePiece();
+                the_piece.x = 4;
+                the_piece.y = -1;
+                the_piece.state = 5;
+                the_piece.Rotate(1, false);
+                the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+                the_piece.setLayoutParams(the_piece.params);
+                the_piece.inUse = true;
+                mainLayout.addView(the_piece);
+
+                // And we good, start the runnable again
+                pieceDropHandler.postDelayed(pieceDropRunnable, drop_speed);
+
+                gameOverPopUp.dismiss();
+            }
+        });
+
+        Button quit_button = (Button)popUpView.findViewById(R.id.quit_button);
+        quit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        TextView level_value = (TextView)popUpView.findViewById(R.id.game_over_level_value);
+        level_value.setText("" + level);
+
+        TextView score_value = (TextView)popUpView.findViewById(R.id.game_over_score_value);
+        score_value.setText("" + score);
     }
 
 }

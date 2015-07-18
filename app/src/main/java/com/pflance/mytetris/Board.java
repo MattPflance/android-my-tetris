@@ -14,6 +14,8 @@ public class Board extends RelativeLayout {
 
     public static boolean grid[][]; // Occupied or not
     public static View blocks[][]; // Holds the views of the grid
+    public Context main_context;
+    public View main_view;
 
     // Default Constructors
     public Board(Context context){
@@ -301,6 +303,13 @@ public class Board extends RelativeLayout {
         // Place the piece
         for (int i=0; i<the_piece.width; ++i) {
             for (int j=0; j<the_piece.height; ++j) {
+
+                if (y - the_piece.height + j + 1 < 0 && the_piece.grid[i][j]) {
+                    // A piece is over the board
+                    Log.d("PLACE", "You Lose!");
+                    MyTetrisMain.gameOver(main_context, main_view);
+                    return;
+                }
 
                 // A boundary check for array out of bounds
                 if (((x + i) < 10) && ((x + i) >= 0) && ((y - the_piece.height + j + 1) < 20) && ((y - the_piece.height + j + 1) >= 0)) {

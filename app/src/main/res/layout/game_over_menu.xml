@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/game_over_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="#80000000"
+    >
+
+    <RelativeLayout
+        android:paddingLeft="@dimen/popup_margin"
+        android:paddingRight="@dimen/popup_margin"
+        android:paddingBottom="@dimen/popup_margin"
+        android:paddingTop="@dimen/popup_margin"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:background="#730000">
+
+        <TextView android:id="@+id/Game_Over"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/game_over"
+            android:textSize="20pt"
+            android:textColor="#FFFFFF" />
+
+        <TextView android:id="@+id/game_over_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/Game_Over"
+            android:text="@string/level"
+            android:textSize="14pt"
+            android:textColor="#FFFFFF" />
+
+        <TextView android:id="@+id/game_over_level_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/Game_Over"
+            android:layout_toRightOf="@id/game_over_level_text"
+            android:layout_toEndOf="@id/game_over_level_text"
+            android:textSize="14pt"
+            android:textColor="#FFFFFF" />
+
+        <TextView android:id="@+id/game_over_score_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/game_over_level_text"
+            android:text="@string/score"
+            android:textSize="14pt"
+            android:textColor="#FFFFFF" />
+
+        <TextView android:id="@+id/game_over_score_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/game_over_level_text"
+            android:layout_toRightOf="@id/game_over_score_text"
+            android:layout_toEndOf="@id/game_over_score_text"
+            android:textSize="14pt"
+            android:textColor="#FFFFFF" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button android:id="@+id/new_game_button"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/new_game" />
+
+            <Button android:id="@+id/quit_button"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/quit" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

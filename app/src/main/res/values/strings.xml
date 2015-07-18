@@ -12,4 +12,8 @@
     <string name="paused">Paused</string>
     <string name="return_text">Return to Game</string>
 
+    <string name="game_over">Game Over</string>
+    <string name="new_game">New Game</string>
+    <string name="quit">Quit</string>
+
 </resources>

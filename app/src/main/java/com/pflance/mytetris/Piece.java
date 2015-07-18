@@ -2,7 +2,6 @@ package com.pflance.mytetris;
 
 
 import android.content.Context;
-import android.support.annotation.MainThread;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -540,8 +539,6 @@ public class Piece extends RelativeLayout {
                             // Place the piece
                             return false;
                         }
-
-                        // Check for actualy grid pieces
 
                     }
                     // We don't care about the block if it isn't filled
