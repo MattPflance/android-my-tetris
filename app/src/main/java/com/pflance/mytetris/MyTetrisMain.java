@@ -172,17 +172,6 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
     }
     @Override
-    public boolean onKeyDown(int keycode, KeyEvent e) {
-        Log.d("onKeyDown", "?");
-        if (keycode == KeyEvent.KEYCODE_SLEEP || keycode == KeyEvent.KEYCODE_HOME || keycode == KeyEvent.KEYCODE_MENU) {
-            Log.d("onKeyDown", "Pop pause menu pls");
-            popPauseMenu(findViewById(0)); // Does not need a view passed
-            return true;
-        }
-
-        return super.onKeyDown(keycode, e);
-    }
-    @Override
     public boolean onTouch(View view, MotionEvent e) {
         if (isScrolling) {
             //Log.d("onTouch------>", "Stopped scrolling");
