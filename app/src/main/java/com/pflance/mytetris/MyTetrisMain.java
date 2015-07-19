@@ -284,7 +284,13 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         return gestureDetector.onTouchEvent(e);
     }
 
-
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (!paused) {
+            popPauseMenu(mainLayout);
+        }
+    }
 
     public void popPauseMenu(View view){
         paused = true;
