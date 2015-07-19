@@ -461,7 +461,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         quit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                gameOverPopUp.dismiss();
+                System.exit(0);
             }
         });
 
