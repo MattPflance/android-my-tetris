@@ -161,7 +161,6 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                         drop_speed = actual_drop_speed;
                         held = false;
                         pieceDropHandler.postDelayed(this, drop_speed);
-                        // Then make a new piece and place above the board
                     }
                 } else {
                     pieceDropHandler.postDelayed(this, drop_speed);
@@ -395,7 +394,6 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
     public static void gameOver(Context context, View view) {
         game_over = true;
-        paused = true;
         LayoutInflater popUp_inflater = LayoutInflater.from(context);
         View popUpView = popUp_inflater.inflate(R.layout.game_over_menu, null, false);
         gameOverPopUp = new PopupWindow(popUpView, -1, -1, true);
