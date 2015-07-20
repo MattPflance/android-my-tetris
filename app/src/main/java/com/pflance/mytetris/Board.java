@@ -14,8 +14,6 @@ public class Board extends RelativeLayout {
 
     public static boolean grid[][]; // Occupied or not
     public static View blocks[][]; // Holds the views of the grid
-    public Context main_context;
-    public View main_view;
 
     // Default Constructors
     public Board(Context context){
@@ -306,8 +304,8 @@ public class Board extends RelativeLayout {
 
                 if (y - the_piece.height + j + 1 < 0 && the_piece.grid[i][j]) {
                     // A piece is over the board
-                    Log.d("PLACE", "You Lose!");
-                    MyTetrisMain.gameOver(main_context, main_view);
+                    //Log.d("PLACE", "You Lose!");
+                    MyTetrisMain.gameOver();
                     return;
                 }
 
@@ -315,9 +313,9 @@ public class Board extends RelativeLayout {
                 if (((x + i) < 10) && ((x + i) >= 0) && ((y - the_piece.height + j + 1) < 20) && ((y - the_piece.height + j + 1) >= 0)) {
 
                     if (the_piece.grid[i][j]) {
-                        Log.d("PLACE", "Place piece at y = " + the_piece.y + " x = " + the_piece.x + ".");
+                        //Log.d("PLACE", "Place piece at y = " + the_piece.y + " x = " + the_piece.x + ".");
                         grid[x + i][y - the_piece.height + j + 1] = true;
-                        blocks[x + i][y - the_piece.height + j + 1].setBackgroundColor(getResources().getColor(the_piece.color));
+                        blocks[x + i][y - the_piece.height + j + 1].setBackgroundColor(getResources().getColor(the_piece.getColor()));
                         the_piece.inUse = false;
                     }
 
@@ -343,8 +341,6 @@ public class Board extends RelativeLayout {
 
     }
     public void clearRowAndDrop(int row) {
-
-        // This method is way too dependant on MyTetrisMain, needs to be cleaned up, maybe Board can observe Main activity or call a single fcn from Main
 
         MyTetrisMain.updateNumbers();
 

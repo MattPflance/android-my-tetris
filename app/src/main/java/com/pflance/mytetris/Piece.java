@@ -9,9 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
 public class Piece extends RelativeLayout {
-    //private String color; // color-code each number (include later, single color for now)
 
-    public int color;
+    private int color;
     public boolean inUse = false;
     public LayoutParams params;
     public int x; // X position on grid relative to bottom left corner of layout
@@ -524,36 +523,34 @@ public class Piece extends RelativeLayout {
 
     public boolean drop() {
         // Drops the piece
-        if (!MyTetrisMain.paused) {
-            boolean[] traced = new boolean[width];
-            for (int i=0; i<width; ++i) traced[i] = false;
-            //Log.d("Drop", "What is the y?: " + y);
-            for (int i = (height - 1); i >= 0; --i) {
-                for (int j = 0; j < width; ++j) {
-                    // Is the searched block filled?
-                    if (grid[j][i] && !traced[j]) { // Yes
-                        // If the block on the board to the left is filled, we return false. Otherwise we continue
-                        traced[j] = true;
-                        //Log.d("Drop", "i: " + i + " j: " + j);
-                        if ((y - height + i + 1) >= 19 || ((y - height + i + 2) >= 0 && Board.grid[x + j][(y - height + i + 1) + 1])) {
-                            // Place the piece
-                            return false;
-                        }
-
+        boolean[] traced = new boolean[width];
+        for (int i=0; i<width; ++i) traced[i] = false;
+        //Log.d("Drop", "What is the y?: " + y);
+        for (int i = (height - 1); i >= 0; --i) {
+            for (int j = 0; j < width; ++j) {
+                // Is the searched block filled?
+                if (grid[j][i] && !traced[j]) { // Yes
+                    // If the block on the board to the left is filled, we return false. Otherwise we continue
+                    traced[j] = true;
+                    //Log.d("Drop", "i: " + i + " j: " + j);
+                    if ((y - height + i + 1) >= 19 || ((y - height + i + 2) >= 0 && Board.grid[x + j][(y - height + i + 1) + 1])) {
+                        // Place the piece
+                        return false;
                     }
-                    // We don't care about the block if it isn't filled
+
                 }
+                // We don't care about the block if it isn't filled
             }
-
-            ++y;
-            params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
-            setLayoutParams(params);
-            return true;
-
         }
-        return false;
+
+        ++y;
+        params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
+        setLayoutParams(params);
+        return true;
     }
 
     public int getLayoutId() { return layout_id; }
+    public int getColor() { return color; }
+
 }
 
