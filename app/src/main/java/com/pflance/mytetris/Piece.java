@@ -13,14 +13,14 @@ public class Piece extends RelativeLayout {
     private int color;
     public boolean inUse = false;
     public LayoutParams params;
-    public int x; // X position on grid relative to bottom left corner of layout
-    public int y; // Y position on grid relative to bottom left corner of layout
+    private int x; // X position on grid relative to bottom left corner of layout
+    private int y; // Y position on grid relative to bottom left corner of layout
     private ViewFlipper layout_flipper;
-    public int number; // Could be 0-6, see spec
-    public int width; // Pieces's width in blocks (22dp x 22dp)
-    public int height; // Pieces's height in blocks (22dp x 22dp)
+    private int number; // Could be 0-6, see spec
+    private int width; // Pieces's width in blocks (22dp x 22dp)
+    private int height; // Pieces's height in blocks (22dp x 22dp)
     private int states; // Number of possible rotated states of the Piece
-    public int state; // The rotated state of the Piece
+    private int state; // The rotated state of the Piece
     private int flipper_id; // Holds the ViewFlipper that holds the roations
     private int layout_id; // The layout id for the piece
     public boolean[][] grid; // holds true or false for occupied or vacant, respectively
@@ -551,6 +551,17 @@ public class Piece extends RelativeLayout {
 
     public int getLayoutId() { return layout_id; }
     public int getColor() { return color; }
+    public int getPieceX() { return x; }
+    public void setPieceX(int x) { this.x = x; }
+    public int getPieceY() { return y; }
+    public void setPieceY(int y) { this.y = y; }
+    public int getPieceWidth() { return width; }
+    public int getPieceHeight() { return height; }
+    public void setState(int state) {
+        this.state = state;
+    }
+    public int getNumber() { return number; }
+
 
 }
 

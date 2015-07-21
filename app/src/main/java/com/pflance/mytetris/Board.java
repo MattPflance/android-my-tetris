@@ -295,14 +295,16 @@ public class Board extends RelativeLayout {
 
     // Need a place piece method
     public void placePiece(Piece the_piece){
-        int y = the_piece.y;
-        int x = the_piece.x;
+        int y = the_piece.getPieceY();
+        int x = the_piece.getPieceX();
+        int width = the_piece.getPieceWidth();
+        int height = the_piece.getPieceHeight();
 
         // Place the piece
-        for (int i=0; i<the_piece.width; ++i) {
-            for (int j=0; j<the_piece.height; ++j) {
+        for (int i=0; i<width; ++i) {
+            for (int j=0; j<height; ++j) {
 
-                if (y - the_piece.height + j + 1 < 0 && the_piece.grid[i][j]) {
+                if (y - height + j + 1 < 0 && the_piece.grid[i][j]) {
                     // A piece is over the board
                     //Log.d("PLACE", "You Lose!");
                     MyTetrisMain.gameOver();
@@ -310,12 +312,12 @@ public class Board extends RelativeLayout {
                 }
 
                 // A boundary check for array out of bounds
-                if (((x + i) < 10) && ((x + i) >= 0) && ((y - the_piece.height + j + 1) < 20) && ((y - the_piece.height + j + 1) >= 0)) {
+                if (((x + i) < 10) && ((x + i) >= 0) && ((y - height + j + 1) < 20) && ((y - height + j + 1) >= 0)) {
 
                     if (the_piece.grid[i][j]) {
                         //Log.d("PLACE", "Place piece at y = " + the_piece.y + " x = " + the_piece.x + ".");
-                        grid[x + i][y - the_piece.height + j + 1] = true;
-                        blocks[x + i][y - the_piece.height + j + 1].setBackgroundColor(getResources().getColor(the_piece.getColor()));
+                        grid[x + i][y - height + j + 1] = true;
+                        blocks[x + i][y - height + j + 1].setBackgroundColor(getResources().getColor(the_piece.getColor()));
                         the_piece.inUse = false;
                     }
 

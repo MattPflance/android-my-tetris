@@ -134,7 +134,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
         // Set the current piece to one of the pieces stored
         the_piece = choosePiece();
-        the_piece.state = 5;
+        the_piece.setState(5);
         the_piece.Rotate(1, false);
         mainLayout.addView(the_piece);
         the_piece.inUse = true;
@@ -158,11 +158,11 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                         LayoutInflater inflater = LayoutInflater.from(getBaseContext());
                         inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
                         the_next_piece.inUse = true;
-                        the_piece.x = 4;
-                        the_piece.y = -1;
-                        the_piece.state = 5;
+                        the_piece.setPieceX(4);
+                        the_piece.setPieceY(-1);
+                        the_piece.setState(5);
                         the_piece.Rotate(1, false);
-                        the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+                        the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
                         mainLayout.addView(the_piece);
                         drop_speed = actual_drop_speed;
                         held = false;
@@ -242,7 +242,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 origin_point = end_point;
             }
 
-            the_piece.params.setMargins(dpTopx(22*the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+            the_piece.params.setMargins(dpTopx(22*the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
             the_piece.setLayoutParams(the_piece.params);
 
         }
@@ -329,7 +329,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         boolean nulled = (the_held_piece == null);
         int layout_id = 0;
 
-        switch(the_piece.number){
+        switch(the_piece.getNumber()){
             case 0: layout_id = R.layout.piece_0;
                 break;
             case 1: layout_id = R.layout.piece_1;
@@ -366,10 +366,10 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
             the_held_piece = temp_piece;
         }
 
-        the_piece.state = 5;
-        the_piece.x = 3;
-        the_piece.y = -1;
-        the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+        the_piece.setState(5);
+        the_piece.setPieceX(3);
+        the_piece.setPieceY(-1);
+        the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
         the_piece.Rotate(1, false);
         mainLayout.addView(the_piece);
         the_held_piece.inUse = false;
@@ -466,11 +466,11 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 // Reset the piece
                 mainLayout.removeView(the_piece);
                 the_piece = choosePiece();
-                the_piece.x = 4;
-                the_piece.y = -1;
-                the_piece.state = 5;
+                the_piece.setPieceX(4);
+                the_piece.setPieceY(-1);
+                the_piece.setState(5);
                 the_piece.Rotate(1, false);
-                the_piece.params.setMargins(dpTopx(22 * the_piece.x), 0, 0, dpTopx(418 - (the_piece.y * 22)));
+                the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
                 the_piece.setLayoutParams(the_piece.params);
                 the_piece.inUse = true;
                 mainLayout.addView(the_piece);
