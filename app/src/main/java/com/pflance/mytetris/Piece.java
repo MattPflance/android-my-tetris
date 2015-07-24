@@ -32,6 +32,7 @@ public class Piece extends RelativeLayout {
     private int flipper_id;              // Holds the ViewFlipper that holds the rotations
     private int layout_id;               // The layout id for the piece
     private boolean[][] grid;            // Holds true or false for occupied or vacant, respectively
+    private Board the_board;             // The Piece will be an Observer of the Board
 
     // Default Constructors
     public Piece(Context context){
@@ -39,6 +40,7 @@ public class Piece extends RelativeLayout {
         number = DEFAULT_NUMBER;
         inUse = false;
         state = 5;
+        the_board = null;
 
         // Set width, height, # of states, and layouts for the piece
         color = R.color.blue;
@@ -77,6 +79,7 @@ public class Piece extends RelativeLayout {
         number = DEFAULT_NUMBER;
         inUse = false;
         state = 5;
+        the_board = null;
 
         // Set width, height, # of states, and layouts for the piece
         color = R.color.blue;
@@ -115,6 +118,7 @@ public class Piece extends RelativeLayout {
         number = DEFAULT_NUMBER;
         inUse = false;
         state = 5;
+        the_board = null;
 
         // Set width, height, # of states, and layouts for the piece
         color = R.color.blue;
@@ -155,11 +159,12 @@ public class Piece extends RelativeLayout {
      * @param context the context the piece needs (always main layout)
      * @param num the type of piece being created
      */
-    public Piece(Context context, int num){
+    public Piece(Context context, int num, Board main_board){
         super(context);
         number = num;
         inUse = false;
         state = 5;
+        the_board = main_board;
 
         // Set width, height, # of states, and layouts for the piece
         switch(number) {
@@ -358,7 +363,7 @@ public class Piece extends RelativeLayout {
                     if ((relative_x < BOARD_X_RIGHT_BOUNDS) && (relative_x >= BOARD_X_LEFT_BOUNDS) && (relative_y < BOARD_Y_BOTTOM_BOUNDS) && (relative_y >= BOARD_Y_UPPER_BOUNDS)) {
 
                         // Check to see if the board is filled on the checked block
-                        if (Board.grid[relative_x][relative_y]) {
+                        if (the_board.getGrid(relative_x, relative_y)) {
 
                             // Revert set to true to reverse the grid of rotated piece
                             Rotate(direction, true);
@@ -405,7 +410,7 @@ public class Piece extends RelativeLayout {
 
                         // Stops the piece if the next left spot on the board is out of bounds OR
                         // Stops the piece if the piece is in bounds for y and there is a block on the board in the way
-                        if (relative_leftmost_x < BOARD_X_LEFT_BOUNDS || (relative_y >= BOARD_Y_UPPER_BOUNDS && Board.grid[relative_leftmost_x][relative_y])) return;
+                        if (relative_leftmost_x < BOARD_X_LEFT_BOUNDS || (relative_y >= BOARD_Y_UPPER_BOUNDS && the_board.getGrid(relative_leftmost_x, relative_y))) return;
 
                         // Stop the trace once we find the first block on piece filled, since we trace from left to right, we don't need to check anymore after
                         break;
@@ -434,7 +439,7 @@ public class Piece extends RelativeLayout {
 
                         // Stops the piece if the next right spot on the board is out of bounds OR
                         // Stops the piece if the piece is in bounds for y and there is a block on the board in the way
-                        if (relative_rightmost_x >= BOARD_X_RIGHT_BOUNDS || (relative_y >= BOARD_Y_UPPER_BOUNDS && Board.grid[relative_rightmost_x][relative_y])) return;
+                        if (relative_rightmost_x >= BOARD_X_RIGHT_BOUNDS || (relative_y >= BOARD_Y_UPPER_BOUNDS && the_board.getGrid(relative_rightmost_x, relative_y))) return;
 
                         // Stop the trace once we find the first block on piece filled, since we trace from right to left, we don't need to check anymore after
                         break;
@@ -470,7 +475,7 @@ public class Piece extends RelativeLayout {
 
                     // Does not drop the piece if the spot beneath the piece relative to the board is out of bounds OR
                     // Does not drop the piece if the piece is in bounds for y and there is a block on the board in the way
-                    if ((relative_lowermost_y > BOARD_Y_BOTTOM_BOUNDS) || (relative_lowermost_y >= 0 && Board.grid[relative_x][relative_lowermost_y])) return false;
+                    if ((relative_lowermost_y > BOARD_Y_BOTTOM_BOUNDS) || (relative_lowermost_y >= 0 && the_board.getGrid(relative_x, relative_lowermost_y))) return false;
 
                     // Stop the trace once we find the first block on piece filled, since we trace from bottom to top, we don't need to check anymore after
                     break;
@@ -484,6 +489,25 @@ public class Piece extends RelativeLayout {
         params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
         setLayoutParams(params);
         return true;
+    }
+
+    /**
+     * A method to update the position of the piece on the board
+     */
+    public void updatePosition() {
+        params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
+        setLayoutParams(params);
+    }
+
+    /**
+     * A method that resets the position of the piece back to the top of the board
+     */
+    public void resetPosition() {
+        x = 4;
+        y = -1;
+        state = 5;
+        Rotate(1, false);
+        updatePosition();
     }
 
     /**

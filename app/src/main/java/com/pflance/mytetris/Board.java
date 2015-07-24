@@ -2,8 +2,6 @@ package com.pflance.mytetris;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.PaintDrawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,9 +12,10 @@ public class Board extends RelativeLayout {
 
     final int BOARD_WIDTH = 10;
     final int BOARD_HEIGHT = 20;
+    final int BOARD_X_RIGHT_BOUNDS = 10;
 
-    public static boolean grid[][]; // Occupied or not
-    public static View blocks[][]; // Holds the views of the grid
+    private boolean grid[][];   // Holds true or false for occupied or vacant, respectively
+    private View blocks[][];    // Holds the views of the grid
 
     // Default Constructors
     public Board(Context context){
@@ -53,8 +52,13 @@ public class Board extends RelativeLayout {
 
     }
 
+    /**
+     * A method that sets the board's grid to empty AND
+     * sets the board's view array to each individual view
+     */
     private void initBoard(){
 
+        // Init board grid to false
         grid = new boolean[BOARD_WIDTH][BOARD_HEIGHT];
         for (int i=0; i<BOARD_WIDTH; ++i){
             for (int j=0; j<BOARD_HEIGHT; ++j) {
@@ -62,7 +66,7 @@ public class Board extends RelativeLayout {
             }
         }
 
-        // set all views to the blocks array... oh boy... Maybe use a canvas next time like Troy mentioned...
+        // Set all views to blocks View 2d array
         blocks = new View[BOARD_WIDTH][BOARD_HEIGHT];
 
         // FIRST ROW
@@ -285,7 +289,7 @@ public class Board extends RelativeLayout {
         blocks[9][18] = findViewById(R.id.board_9_18);
         blocks[9][19] = findViewById(R.id.board_9_19);
 
-        // Now set all colors to transparent
+        // Set all colors to transparent
         for (int i=0; i<10; ++i) {
             for (int j=0; j<20; ++j) {
                 blocks[i][j].setBackgroundColor(getResources().getColor(R.color.transparent));
@@ -296,73 +300,129 @@ public class Board extends RelativeLayout {
 
     }
 
-    // Need a place piece method
+    /**
+     * A method that places a piece on the board, setting the grid positions to true
+     * and filling in the color at those blocks
+     *
+     * @param the_piece a Piece representing the piece being placed on the board
+     *
+     * Commented out a check for placing the piece in bounds of the board. I feel it's an unnecessary check, testing before removing entirely
+     */
     public void placePiece(Piece the_piece){
+
+        // Store common variables used for the piece
         int y = the_piece.getPieceY();
         int x = the_piece.getPieceX();
         int width = the_piece.getPieceWidth();
         int height = the_piece.getPieceHeight();
+        // Relative positions of piece's grid to the board's grid
         int relative_x, relative_y;
 
-        // Place the piece
+        // Check the piece's grid for filled blocks
         for (int i=0; i<width; ++i) {
             for (int j=0; j<height; ++j) {
 
+                // Set relative positions to each block checked
                 relative_y = y - height + j + 1;
                 relative_x = x + i;
 
-                // Check to see if a filled block on a piece is over the board. Game over if accessed
+                // Check to see if a filled block on a piece is over the board. Game over if accessed.
                 if (relative_y < 0 && the_piece.getGridAt(i, j)) {
                     MyTetrisMain.gameOver();
                     return;
                 }
 
-                // Are the relative x and y positions of the grid on the board on the actual board? (grid could go out of bounds)
-                if ((relative_x < 10) && (relative_x >= 0) && (relative_y < 20) && (relative_y >= 0)) {
 
-                    // The block contains a filled square, update the board using relative positions.
-                    if (the_piece.getGridAt(i, j)) {
-                        grid[relative_x][relative_y] = true;
-                        blocks[relative_x][relative_y].setBackgroundColor(getResources().getColor(the_piece.getColor()));
-                        the_piece.setInUse(false);
-                    }
+                //if ((relative_x < BOARD_X_RIGHT_BOUNDS) && (relative_x >= BOARD_X_LEFT_BOUNDS) && (relative_y <= BOARD_Y_BOTTOM_BOUNDS) && (relative_y >= BOARD_Y_UPPER_BOUNDS)) {
+
+                // Check if the piece's grid[i][j] is filled
+                if (the_piece.getGridAt(i, j)) {
+
+                    // Set the Board's grid and blocks color to true and the color of the piece
+                    grid[relative_x][relative_y] = true;
+                    blocks[relative_x][relative_y].setBackgroundColor(getResources().getColor(the_piece.getColor()));
+
+                    // This piece is no longer in use
+                    the_piece.setInUse(false);
 
                 }
+
+               // }
             }
         }
 
-        // Clear any rows
+        // Clears any row that may have been completed by the placement
         boolean clear;
         for (int i=0; i<20; ++i){
+
+            // Assume we are going to clear the board
             clear = true;
+
             for (int j=0; j<10; ++j){
+
+                // Check to see if a block on the row i is empty
                 if (!grid[j][i]) {
+
+                    // We cannot clear this row
                     clear = false;
                     break;
+
                 }
+
             }
 
+            // If we can clear the row, clear row i and drop all rows above it by 1
             if (clear) {
                 clearRowAndDrop(i);
             }
         }
 
     }
-    public void clearRowAndDrop(int row) {
 
+    /**
+     * A private method used in clearing the board's row
+     * and dropping all blocks above it down one row
+     *
+     * @param row an Integer which represents the row to be cleared and dropped from
+     */
+    private void clearRowAndDrop(int row) {
+
+        // Update the score and goal count on the main activity
         MyTetrisMain.updateNumbers();
 
-        for (int i=0; i<10; ++i) {
+        // Recurse through the board starting from the y value above 'row' and going up
+        for (int i=0; i<BOARD_X_RIGHT_BOUNDS; ++i) {
             for (int j=(row - 1); j >= 0; --j) {
+
+                // Set the below block value to the current block value
                 grid[i][j + 1] = grid[i][j];
+
+                // Grab the color from the current block
                 int color = ((ColorDrawable)blocks[i][j].getBackground()).getColor();
+
+                // Set the below block value color to transparent
                 blocks[i][j + 1].setBackgroundColor(getResources().getColor(R.color.transparent));
+
+                // Check if the below block value is filled
                 if (grid[i][j+1]) {
+
+                    // Then set the below block color to the retrieved block color
                     blocks[i][j + 1].setBackgroundColor(color);
                 }
             }
         }
 
     }
+
+    /**
+     * Getter methods
+     */
+    public boolean getGrid(int x, int y) { return grid[x][y]; }
+
+    /**
+     * Setter methods
+     */
+    public void setGrid(int x, int y, boolean bool) { grid[x][y] = bool; }
+    public void setBlockColor(int x, int y, int color) { blocks[x][y].setBackgroundColor(color); }
 
 }

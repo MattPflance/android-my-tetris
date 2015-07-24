@@ -11,7 +11,6 @@ import android.util.TypedValue;
 import android.view.Display;
 import android.view.GestureDetector;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -44,8 +43,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
     static int displayed_goal, actual_drop_speed;
     static Piece[] all_pieces; // Holds all possible pieces
 
-    public static Resources main_resources;
-    public static Context main_context;
+    private static Resources main_resources;
+    private static Context main_context;
     private static int score, goal, level, drop_speed;
     private static RelativeLayout the_held_piece_view, the_next_piece_view, mainLayout;
     private static Handler pieceDropHandler;
@@ -77,10 +76,13 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         // Set up Resources to convert px to dp
         main_resources = main_context.getResources();
 
+        // Init the board
+        the_board = (Board)findViewById(R.id.the_board);
+
         // Set up all pieces
         all_pieces = new Piece[MAX_NUMBER_OF_PIECES];
         for (int i=0; i<MAX_NUMBER_OF_PIECES; ++i){
-            all_pieces[i] = new Piece(getBaseContext(), i);
+            all_pieces[i] = new Piece(main_context, i, the_board);
         }
 
         // Set the content view
@@ -129,9 +131,6 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         display.getSize(size);
         screen_width_dp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, size.x, getResources().getDisplayMetrics());
 
-        // Init the board
-        the_board = (Board)findViewById(R.id.the_board);
-
         // Set the current piece to one of the pieces stored
         the_piece = choosePiece();
         the_piece.setState(5);
@@ -158,11 +157,9 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                         LayoutInflater inflater = LayoutInflater.from(getBaseContext());
                         inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
                         the_next_piece.setInUse(true);
-                        the_piece.setPieceX(4);
-                        the_piece.setPieceY(-1);
-                        the_piece.setState(5);
-                        the_piece.Rotate(1, false);
-                        the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
+
+                        the_piece.resetPosition();
+
                         mainLayout.addView(the_piece);
                         drop_speed = actual_drop_speed;
                         held = false;
@@ -242,8 +239,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 origin_point = end_point;
             }
 
-            the_piece.params.setMargins(dpTopx(22*the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
-            the_piece.setLayoutParams(the_piece.params);
+
+            the_piece.updatePosition();
 
         }
 
@@ -366,11 +363,9 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
             the_held_piece = temp_piece;
         }
 
-        the_piece.setState(5);
-        the_piece.setPieceX(3);
-        the_piece.setPieceY(-1);
-        the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
-        the_piece.Rotate(1, false);
+        the_piece.resetPosition();
+        the_piece.updatePosition();
+
         mainLayout.addView(the_piece);
         the_held_piece.setInUse(false);
         the_piece.setInUse(true);
@@ -430,8 +425,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 // Reset board
                 for (int i=0; i<10; ++i){
                     for (int j=0; j<20; ++j) {
-                        Board.grid[i][j] = false;
-                        Board.blocks[i][j].setBackgroundColor(main_resources.getColor(R.color.transparent));
+                        the_board.setGrid(i, j, false);
+                        the_board.setBlockColor(i, j, main_resources.getColor(R.color.transparent));
                     }
                 }
 
@@ -466,12 +461,10 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 // Reset the piece
                 mainLayout.removeView(the_piece);
                 the_piece = choosePiece();
-                the_piece.setPieceX(4);
-                the_piece.setPieceY(-1);
-                the_piece.setState(5);
-                the_piece.Rotate(1, false);
-                the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
-                the_piece.setLayoutParams(the_piece.params);
+
+                the_piece.resetPosition();
+                the_piece.updatePosition();
+
                 the_piece.setInUse(true);
                 mainLayout.addView(the_piece);
 
