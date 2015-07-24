@@ -121,7 +121,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         // Set next image
         LayoutInflater inflater = LayoutInflater.from(getBaseContext());
         inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
-        the_next_piece.inUse = true;
+        the_next_piece.setInUse(true);
 
         // Get the screen width to set up tapping to rotate
         Display display = getWindowManager().getDefaultDisplay();
@@ -137,7 +137,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         the_piece.setState(5);
         the_piece.Rotate(1, false);
         mainLayout.addView(the_piece);
-        the_piece.inUse = true;
+        the_piece.setInUse(true);
 
         pieceDropHandler = new Handler();
 
@@ -157,7 +157,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                         // Set next image
                         LayoutInflater inflater = LayoutInflater.from(getBaseContext());
                         inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
-                        the_next_piece.inUse = true;
+                        the_next_piece.setInUse(true);
                         the_piece.setPieceX(4);
                         the_piece.setPieceY(-1);
                         the_piece.setState(5);
@@ -206,7 +206,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         // e2 holds details of where scrolling ends
         // velocityX and velocityY are self explanatory
 
-        /* This is where moving the peice will be implemented */
+        /* This is where moving the piece will be implemented */
 
         float diffY = e2.getY() - e1.getY();
         float diffX = e2.getX() - e1.getX();
@@ -235,10 +235,10 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
             end_point = (int)e2.getX();
             if (origin_point - end_point >= dpTopx(20)) {
-                the_piece.canShift("left");
+                the_piece.shift(-1);
                 origin_point = end_point;
             } else if (end_point - origin_point >= dpTopx(20)) {
-                the_piece.canShift("right");
+                the_piece.shift(1);
                 origin_point = end_point;
             }
 
@@ -357,7 +357,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
             // Set next image
             LayoutInflater inflater = LayoutInflater.from(getBaseContext());
             inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
-            the_next_piece.inUse = true;
+            the_next_piece.setInUse(true);
         } else {
             Log.d("HOLD", "Recover held piece");
             // Recover held piece
@@ -372,8 +372,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
         the_piece.Rotate(1, false);
         mainLayout.addView(the_piece);
-        the_held_piece.inUse = false;
-        the_piece.inUse = true;
+        the_held_piece.setInUse(false);
+        the_piece.setInUse(true);
 
         // Set held image
         LayoutInflater inflater = LayoutInflater.from(getBaseContext());
@@ -387,8 +387,8 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         int the_number;
         while(true) {
             the_number = random.nextInt(7);
-            if (!all_pieces[the_number].inUse) {
-                all_pieces[the_number].inUse = true;
+            if (!all_pieces[the_number].getInUse()) {
+                all_pieces[the_number].setInUse(true);
                 return all_pieces[the_number];
             }
         }
@@ -437,11 +437,11 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
                 // Reset score, level, goal
                 level = 1;
-                level_view.setText("" + level);
+                level_view.setText(" " + level);
                 goal = 5;
-                goal_view.setText("" + goal);
+                goal_view.setText(" " + goal);
                 score = 0;
-                score_view.setText("" + score);
+                score_view.setText(" " + score);
 
                 // Reset drop speed
                 actual_drop_speed = 500;
@@ -449,7 +449,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
 
                 // Set all 7 pieces to not in use
                 for (int i=0; i<7; ++i) {
-                    all_pieces[i].inUse = false;
+                    all_pieces[i].setInUse(false);
                 }
 
                 // Reset held piece
@@ -461,7 +461,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 the_next_piece = choosePiece();
                 LayoutInflater inflater = LayoutInflater.from(main_context);
                 inflater.inflate(the_next_piece.getLayoutId(), the_next_piece_view);
-                the_next_piece.inUse = true;
+                the_next_piece.setInUse(true);
 
                 // Reset the piece
                 mainLayout.removeView(the_piece);
@@ -472,7 +472,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
                 the_piece.Rotate(1, false);
                 the_piece.params.setMargins(dpTopx(22 * the_piece.getPieceX()), 0, 0, dpTopx(418 - (the_piece.getPieceY() * 22)));
                 the_piece.setLayoutParams(the_piece.params);
-                the_piece.inUse = true;
+                the_piece.setInUse(true);
                 mainLayout.addView(the_piece);
 
                 // And we good, start the runnable again

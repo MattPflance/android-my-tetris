@@ -12,6 +12,9 @@ import android.widget.RelativeLayout;
 
 public class Board extends RelativeLayout {
 
+    final int BOARD_WIDTH = 10;
+    final int BOARD_HEIGHT = 20;
+
     public static boolean grid[][]; // Occupied or not
     public static View blocks[][]; // Holds the views of the grid
 
@@ -19,12 +22,12 @@ public class Board extends RelativeLayout {
     public Board(Context context){
         super(context);
 
-        // Sets all boolean values and views
-        initBoard();
-
         // Sets layout to the board
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.the_board_layout, this);
+
+        // Sets all boolean values and views
+        initBoard();
 
     }
     public Board(Context context, AttributeSet attrs){
@@ -41,26 +44,26 @@ public class Board extends RelativeLayout {
     public Board(Context context, AttributeSet attrs, int defStyle){
         super(context, attrs, defStyle);
 
-        // Sets all boolean values and views
-        initBoard();
-
         // Sets layout to the board
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.the_board_layout, this);
+
+        // Sets all boolean values and views
+        initBoard();
 
     }
 
     private void initBoard(){
 
-        grid = new boolean[10][20];
-        for (int i=0; i<10; ++i){
-            for (int j=0; j<20; ++j) {
+        grid = new boolean[BOARD_WIDTH][BOARD_HEIGHT];
+        for (int i=0; i<BOARD_WIDTH; ++i){
+            for (int j=0; j<BOARD_HEIGHT; ++j) {
                 grid[i][j] = false;
             }
         }
 
-        // set all views to the blocks array... oh boy
-        blocks = new View[10][20];
+        // set all views to the blocks array... oh boy... Maybe use a canvas next time like Troy mentioned...
+        blocks = new View[BOARD_WIDTH][BOARD_HEIGHT];
 
         // FIRST ROW
         blocks[0][0] = findViewById(R.id.board_0_0);
@@ -299,26 +302,29 @@ public class Board extends RelativeLayout {
         int x = the_piece.getPieceX();
         int width = the_piece.getPieceWidth();
         int height = the_piece.getPieceHeight();
+        int relative_x, relative_y;
 
         // Place the piece
         for (int i=0; i<width; ++i) {
             for (int j=0; j<height; ++j) {
 
-                if (y - height + j + 1 < 0 && the_piece.grid[i][j]) {
-                    // A piece is over the board
-                    //Log.d("PLACE", "You Lose!");
+                relative_y = y - height + j + 1;
+                relative_x = x + i;
+
+                // Check to see if a filled block on a piece is over the board. Game over if accessed
+                if (relative_y < 0 && the_piece.getGridAt(i, j)) {
                     MyTetrisMain.gameOver();
                     return;
                 }
 
-                // A boundary check for array out of bounds
-                if (((x + i) < 10) && ((x + i) >= 0) && ((y - height + j + 1) < 20) && ((y - height + j + 1) >= 0)) {
+                // Are the relative x and y positions of the grid on the board on the actual board? (grid could go out of bounds)
+                if ((relative_x < 10) && (relative_x >= 0) && (relative_y < 20) && (relative_y >= 0)) {
 
-                    if (the_piece.grid[i][j]) {
-                        //Log.d("PLACE", "Place piece at y = " + the_piece.y + " x = " + the_piece.x + ".");
-                        grid[x + i][y - height + j + 1] = true;
-                        blocks[x + i][y - height + j + 1].setBackgroundColor(getResources().getColor(the_piece.getColor()));
-                        the_piece.inUse = false;
+                    // The block contains a filled square, update the board using relative positions.
+                    if (the_piece.getGridAt(i, j)) {
+                        grid[relative_x][relative_y] = true;
+                        blocks[relative_x][relative_y].setBackgroundColor(getResources().getColor(the_piece.getColor()));
+                        the_piece.setInUse(false);
                     }
 
                 }
