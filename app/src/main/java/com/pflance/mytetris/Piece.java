@@ -471,7 +471,7 @@ public class Piece extends RelativeLayout {
 
                     // The x position of piece on the board and y position just under the piece on the board
                     int relative_x = x + i;
-                    int relative_lowermost_y = y - height + i + 2;
+                    int relative_lowermost_y = y - height + j + 2;
 
                     // Does not drop the piece if the spot beneath the piece relative to the board is out of bounds OR
                     // Does not drop the piece if the piece is in bounds for y and there is a block on the board in the way
@@ -688,9 +688,6 @@ public class Piece extends RelativeLayout {
     /**
      * Setter methods that set the private fields of the piece
      */
-    public void setPieceX(int x) { this.x = x; }
-    public void setPieceY(int y) { this.y = y; }
-    public void setState(int state) { this.state = state; }
     public void setInUse(boolean inUse) { this.inUse = inUse; }
 
 }

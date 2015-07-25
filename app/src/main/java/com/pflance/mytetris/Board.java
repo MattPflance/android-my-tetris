@@ -10,8 +10,8 @@ import android.widget.RelativeLayout;
 
 public class Board extends RelativeLayout {
 
-    final int BOARD_WIDTH = 10;
-    final int BOARD_HEIGHT = 20;
+    final static int BOARD_WIDTH = 10;
+    final static int BOARD_HEIGHT = 20;
     final int BOARD_X_RIGHT_BOUNDS = 10;
 
     private boolean grid[][];   // Holds true or false for occupied or vacant, respectively
@@ -328,12 +328,9 @@ public class Board extends RelativeLayout {
 
                 // Check to see if a filled block on a piece is over the board. Game over if accessed.
                 if (relative_y < 0 && the_piece.getGridAt(i, j)) {
-                    MyTetrisMain.gameOver();
+                    if (!MyTetrisMain.game_over) MyTetrisMain.gameOver();
                     return;
                 }
-
-
-                //if ((relative_x < BOARD_X_RIGHT_BOUNDS) && (relative_x >= BOARD_X_LEFT_BOUNDS) && (relative_y <= BOARD_Y_BOTTOM_BOUNDS) && (relative_y >= BOARD_Y_UPPER_BOUNDS)) {
 
                 // Check if the piece's grid[i][j] is filled
                 if (the_piece.getGridAt(i, j)) {
@@ -347,7 +344,6 @@ public class Board extends RelativeLayout {
 
                 }
 
-               // }
             }
         }
 
