@@ -13,10 +13,12 @@ public class Piece extends RelativeLayout {
     final int DEFAULT_NUMBER = 2;
     final int START_X_POSITION = 4;
     final int START_Y_POSITION = -1; // Above the board
+    final int BASE_Y_DP_POSITION = 418;
     final int BOARD_X_LEFT_BOUNDS = 0;
     final int BOARD_X_RIGHT_BOUNDS = 10;
     final int BOARD_Y_BOTTOM_BOUNDS = 19;
     final int BOARD_Y_UPPER_BOUNDS = 0;
+    final int PIECE_WIDTH_HEIGHT = 22; // in dp
 
     private int color;                   // The color of the piece
     private boolean inUse;               // If the piece is inUse, it cannot be made the next piece
@@ -381,8 +383,7 @@ public class Piece extends RelativeLayout {
         y += shift_y;
 
         // Set layout params and flipper value of rotated piece
-        params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
-        setLayoutParams(params);
+        updatePosition();
         layout_flipper.setDisplayedChild(state);
     }
 
@@ -486,8 +487,7 @@ public class Piece extends RelativeLayout {
 
         // Passed drop check, move piece down one and update params
         ++y;
-        params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
-        setLayoutParams(params);
+        updatePosition();
         return true;
     }
 
@@ -495,7 +495,7 @@ public class Piece extends RelativeLayout {
      * A method to update the position of the piece on the board
      */
     public void updatePosition() {
-        params.setMargins(MyTetrisMain.dpTopx(22 * x), 0, 0, MyTetrisMain.dpTopx(418 - (y * 22)));
+        params.setMargins(MyTetrisMain.dpTopx(PIECE_WIDTH_HEIGHT * x), 0, 0, MyTetrisMain.dpTopx(BASE_Y_DP_POSITION - (y * PIECE_WIDTH_HEIGHT)));
         setLayoutParams(params);
     }
 

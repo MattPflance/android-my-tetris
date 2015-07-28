@@ -25,17 +25,17 @@ import java.util.Random;
 public class MyTetrisMain extends Activity implements GestureDetector.OnGestureListener, View.OnTouchListener {
 
     // Constants
-    final static int MAX_NUMBER_OF_PIECES = 7;     // The maximum number of pieces
-    final static int START_SCORE = 0;              // On a New Game, this is the starting score
-    final static int START_GOAL = 5;               // On a New Game, this is the starting goal (+= 5 every ++level)
-    final static int START_LEVEL = 1;              // On a New Game, this is the starting level
-    final static int START_DROP_SPEED = 500;       // On a New Game, this is the starting drop speed
-    final static int MIN_Y_SWIPE_DISTANCE = 44;    // The minimum swiping distance in dp for a swipe action
-    final static int MIN_Y_SWIPE_SPEED = 100;      // The minimum swiping speed for a swipe action
-    final static int MIN_X_SCROLL_DISTANCE = 20;   // The scrolling distance for a horizontal shift action
-    final static int MAX_DROP_SPEED = 100;         // The fastest the piece will ever drop. Lowest runnable delay.
+    private static final int MAX_NUMBER_OF_PIECES = 7;     // The maximum number of pieces
+    private static final int START_SCORE = 0;              // On a New Game, this is the starting score
+    private static final int START_GOAL = 5;               // On a New Game, this is the starting goal (+= 5 every ++level)
+    private static final int START_LEVEL = 1;              // On a New Game, this is the starting level
+    private static final int START_DROP_SPEED = 500;       // On a New Game, this is the starting drop speed
+    private static final int MIN_Y_SWIPE_DISTANCE = 44;    // The minimum swiping distance in dp for a swipe action
+    private static final int MIN_Y_SWIPE_SPEED = 100;      // The minimum swiping speed for a swipe action
+    private static final int MIN_X_SCROLL_DISTANCE = 20;   // The scrolling distance for a horizontal shift action
+    private static final int MAX_DROP_SPEED = 100;         // The fastest the piece will ever drop. Lowest runnable delay.
 
-    // +Variables
+    // Variables
     static boolean held, paused, game_over;              // Booleans that control the state of the game
     static boolean isScrolling, is_back_pressed;         // Booleans that allow/prevent actions from occurring
     int origin_point, end_point, screen_width_px;        // Used for touch/gesture listeners for touch screen functionality
