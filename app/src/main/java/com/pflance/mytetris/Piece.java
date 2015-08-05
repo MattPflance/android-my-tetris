@@ -10,14 +10,14 @@ import android.widget.ViewFlipper;
 
 public class Piece extends RelativeLayout {
 
-    private final int DEFAULT_NUMBER = 2;
-    private final int START_X_POSITION = 4;
-    private final int START_Y_POSITION = -1; // Above the board
+    final int DEFAULT_NUMBER = 2;
+    final int START_X_POSITION = 4;
+    final int START_Y_POSITION = -1; // Above the board
     final int BASE_Y_DP_POSITION = 418;
-    private final int BOARD_X_LEFT_BOUNDS = 0;
-    private final int BOARD_X_RIGHT_BOUNDS = 10;
-    private final int BOARD_Y_BOTTOM_BOUNDS = 19;
-    private final int BOARD_Y_UPPER_BOUNDS = 0;
+    final int BOARD_X_LEFT_BOUNDS = 0;
+    final int BOARD_X_RIGHT_BOUNDS = 10;
+    final int BOARD_Y_BOTTOM_BOUNDS = 19;
+    final int BOARD_Y_UPPER_BOUNDS = 0;
     final int PIECE_WIDTH_HEIGHT = 22; // in dp
 
     private int color;                   // The color of the piece

@@ -10,9 +10,9 @@ import android.widget.RelativeLayout;
 
 public class Board extends RelativeLayout {
 
-    static final int BOARD_WIDTH = 10;
-    static final int BOARD_HEIGHT = 20;
-    static final int BOARD_X_RIGHT_BOUNDS = 10;
+    private static final int BOARD_WIDTH = 10;
+    private static final int BOARD_HEIGHT = 20;
+    private static final int BOARD_X_RIGHT_BOUNDS = 10;
 
     private boolean grid[][];   // Holds true or false for occupied or vacant, respectively
     private View blocks[][];    // Holds the views of the grid
