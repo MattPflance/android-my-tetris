@@ -421,6 +421,7 @@ public class MyTetrisMain extends Activity implements GestureDetector.OnGestureL
         while(true) {
             the_number = random.nextInt(7);
 
+            // There will only be MAX 2/7 pieces in use
             if (!all_pieces[the_number].getInUse()) {
                 // This piece is not in use
                 all_pieces[the_number].setInUse(true);
